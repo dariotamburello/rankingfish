@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
+    
+
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta http-equiv="Content-Security-Policy" content="img-src * 'self' data: https:; default-src *; style-src *  'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; media-src *; object-src 'self'">
+
+
+    <!-- Your app title -->
+    <title>Ranking Fish</title>
+
+    <!-- This template defaults to the iOS CSS theme. To support both iOS and material design themes, see the Framework7 Tutorial at the link below:
+        http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
+     -->
+    
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="css/framework7-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="statusbar-overlay"></div>
+
+    <div class="panel-overlay"></div>
+
+    <div class="panel panel-right panel-reveal panel-personal">
+        <div class="content-block font-sidePanel">
+            
+            <div id="userProfileIndex">
+                <div id="imageUser"><img src="img/users/default_user_small.png" height="35px" width="35px" id="img-avatar" alt=""></div>
+                <div id="nameUser" class="item-inner">Dario Tamburello</div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="list-block list-block-sinmargen">
+                <div class="list-group">
+                    <ul>
+
+                      <li class="item-content">
+                        <div class="item-media"><i class="fa fa-user" aria-hidden="true"></i></div>
+                        <div class="item-inner"><div class="item-title">Mi perfil</div></div>
+                      </li>
+
+                      <li class="item-content">
+                        <div class="item-media"><i class="fa fa-map-o" aria-hidden="true"></i></div>
+                        <div class="item-inner"><div class="item-title">Mis pescas</div></div>
+                      </li>
+
+                      <li class="item-content">
+                        <div class="item-media"><i class="fa fa-picture-o" aria-hidden="true"></i></div>
+                        <div class="item-inner"><div class="item-title">Mis fotos</div></div>
+                      </li>
+
+                      <li class="item-content">
+                        <div class="item-media"><i class="fa fa-file-text-o" aria-hidden="true"></i></div>
+                        <div class="item-inner"><div class="item-title">Mis notas</div></div>
+                      </li>
+                      
+                    </ul>
+                </div>
+
+                <div class="list-group">
+                    <ul>
+                        
+                      <li class="list-group-title">Funciones</li>
+                      <li class="item-content">
+                        <div class="item-media"><i class="fa fa-bar-chart" aria-hidden="true"></i></div>
+                        <div class="item-inner"><div class="item-title">Estadísticas</div></div>
+                      </li>
+
+                      <li class="item-content">
+                        <div class="item-media"><i class="fa fa-bell" aria-hidden="true"></i></div>
+                        <div class="item-inner"><div class="item-title">Notificaciones</div></div>
+                      </li>
+
+                      <li class="item-content">
+                        <div class="item-media"><i class="fa fa-cog" aria-hidden="true"></i></div>
+                        <div class="item-inner"><div class="item-title">Preferencias</div></div>
+                      </li>
+
+                    </ul>
+                </div>
+
+                <div class="list-group">
+                    <ul>
+                        
+                      <li class="list-group-title">Otros</li>
+                      <li class="item-content">
+                        <div class="item-media"><i class="fa fa-info-circle" aria-hidden="true"></i></div>
+                        <div class="item-inner"><div class="item-title"><a href="about.html">Acerca de nosotros</a><br></div></div>
+                      </li>
+
+                      <li class="item-content">
+                        <div class="item-media"><i class="fa fa-sign-out" aria-hidden="true"></i></div>
+                        <div class="item-inner"><div class="item-title"><a href="#" id="btnLogout">Salir</a></div></div>
+                      </li>
+
+                    </ul>
+                </div>
+            </div> 
+            
+        </div>
+    </div>
+
+    <div class="panel panel-left panel-cover">
+      <div class="block">
+        <div id="sidepanelImage"></div>
+
+        <div class="zoneTitleSidePanel">
+            <h3 id="sidePanelTitle"></h3>
+            <p><span id="sidepanelSubtitle1"></span>, <span id="sidepanelSubtitle2"></span> (<span id="sidepanelSubtitle3"></span>)</p>
+        </div>
+        <p id="sidepanelText"></p>
+        
+        <div id="sidePanelLinks">
+            <a href="#">¿Cómo llegar?</a> - <a href="#">Más información</a> - <a href="#">Clima 7 días</a>
+        </div>
+
+        <div id="verPescasCercanas">
+            <div id="imgPescasCercanas"><img src="img/fish_ico.png" alt=""></div>
+            <div id="textPescasCercanas"><p><a href="#" onclick="verPescasZona()">Ver pescas en la zona</a></p></div>
+            <div id="idParaPescasCercanas" class="ocultarElemento"></div>
+            <div class="clear"></div>
+        </div>
+
+        <hr width="80%">
+        <div id="rankingEspejo">
+            <div id="valoracionNro">--</div>
+            <div id="valoracionTexto"></div> 
+            <div id="valoracionCantComentarios"></div>
+            <div class="clear"></div>
+        </div>
+        <div id="addValoracion"><a href="#"><i>Añadir valoración</i></a></div>
+        
+        <div id="pulgares">
+            <div id="pulgarUp" onclick="fishPulgarUp()"><i class="fa fa-thumbs-o-up fa-2x active" aria-hidden="true" ></i><span id="cantPulgaresUp"></span></div>
+            <div id="pulgarDown" onclick="fishPulgarDown()"><i class="fa fa-thumbs-o-down fa-2x" aria-hidden="true"></i><span id="cantPulgaresDown"></span></div>
+            <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="views">
+
+        <div id="splashPNG" class="view ">
+            <img src="img/splash.png" alt="" style="height: 100%; width: 100%;">
+        </div>
+
+        <div id="viewPrincipal" class="view view-main ocultarElemento">
+
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="center sliding">Ranking Fish</div>
+                    <div class="right">
+                        <a href="#" class="link icon-only open-panel" data-panel="right"><i class="icon f7-icons">bars</i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pages navbar-through toolbar-through">
+                
+                <div data-page="index" class="page">
+                    
+                    <div class="page-content">
+                        <div >
+                            <div id="map" ></div>                       
+                        </div>
+                    </div> 
+                </div> 
+
+                <div data-page="addPescaPage" class="page cached">
+                    <div class="page-content">            
+                        <div class="content-block">
+                            <div class="content-block-title">Agregar Pesca</div>
+                            <div class="content-block-inner"><input type="text"></div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div data-page="comunidad" class="page cached">
+                               
+                        
+                            <div class="page-content infinite-scroll">
+                              <div class="list-block">
+                                <div id="actividades">
+                                  
+                                </div>
+                              </div>
+                              <!-- Preloader -->
+                              <div class="infinite-scroll-preloader">
+                                <div class="preloader"></div>
+                              </div>
+                            </div> 
+                        
+                    
+                </div>
+                
+                <div data-page="mensajes" class="page cached">
+                    <div class="page-content">
+                        <div class="content-block">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div data-page="miPerfil" class="page cached no-navbar">
+                    <div class="page-content">
+                        
+                        <div class="EncabezadoPerfil" id="">
+                            <div>
+                                <div class="image" id="imagenMiPerfil"></div>
+                                <div class="infoImage">
+                                    <div class="username"><span id="userActive"></span></div>
+                                    <div class="userLocation"><span id="userCiudad"></span>, <b id="userPais"></b></div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="encabezadoMenu">
+                                <div id="BInfoUser" class="menu menuProfileActive"><a href="#">Informacion</a></div>
+                                <div id="BPescasUser" class="menu"><a href="#">Pescas</a></div>
+                                <div id="BContactUser" class="menu"><a href="#">Contactos</a></div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+
+                        <div class="cuerpoPerfil">
+                            <div id="informacionUsuario">
+                                
+                                <div class="card">
+                                  <div class="card-content">
+                                    <div class="card-header" id="nameUserCard">Acerca de ti</div>
+                                    <div class="card-content-inner">
+                                        Miembro desde el 1 de enero de 2018 <br>
+                                        Nació el 7 de junio 1989 <br>
+                                        <br>
+                                        <i class="fa fa-quote-left" aria-hidden="true"></i> <i>Me apasiona la pesca desde que era un niño</i>
+                                    </div>
+                                    <div class="card-footer"><a href="#">Editar</a></div>
+                                  </div>
+                                </div>
+
+                                 <div class="card">
+                                    <div class="card-content">
+                                        <div class="card-header" id="nameUserCard">Notas</div>
+                                        <div class="card-content-inner"><a href="#"><i>Añadir nota</i></a></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div id="pescasUsuario" class="ocultarElemento">
+                                
+                                <div class="card">
+                                  <div class="card-content">
+                                    <div class="card-content-inner" id="pescasUserCard"></div>
+                                  </div>
+                                </div>
+
+                            </div>
+
+                            <div id="contactosUsuario" class="ocultarElemento">
+                                
+                                <div class="card">
+                                  <div class="card-content">
+                                        
+                                        <div id="contactosUserCard" class="row ">
+                                            <div id="BamigosUserCard" class="Cardlink menuProfileContactoActive"><a href="#">Amigos</a></div>
+                                            <div id="BclubesUserCard" class="Cardlink"><a href="#">Clubes</a></div>
+                                            <div id="BguiasUserCard" class="Cardlink"><a href="#">Guías</a></div>
+                                        </div>
+                                        
+                                        <div class="card-content-inner">
+                                            <div id="amigosUserCard"><ul id="listaAmigosUserCard"></ul></div>
+                                            <div id="clubesUserCard" class="ocultarElemento">Clubes...</div>
+                                            <div id="guiasUserCard" class="ocultarElemento">Guías...</div>
+                                        </div>
+                                  </div>
+                                </div>
+
+                            </div>
+                        </div>
+                            
+                    </div>
+                </div>
+
+                <div data-page="otroPerfil" class="page cached no-navbar">
+                    <div class="page-content">
+                        
+                        <div class="EncabezadoPerfil otroPerfil" id="">
+                            <div>
+                                <div class="image" id="imagenOtroPerfil"></div>
+                                <div class="infoImage">
+                                    <div class="username"><span id="userActiveOtro"></span></div>
+                                    <div class="userLocation"><span id="userCiudadOtro"></span>, <b id="userPaisOtro"></b></div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="encabezadoMenu">
+                                <div id="BInfoUserOtro" class="menu menuProfileActive"><a href="#">Informacion</a></div>
+                                <div id="BPescasUserOtro" class="menu"><a href="#">Pescas</a></div>
+                                <div id="BContactUserOtro" class="menu"><a href="#">Contactos</a></div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+
+                        <div class="cuerpoPerfil">
+
+                            <div id="cabeceraOtroUsuario">
+                                    
+                            </div>
+                            <div id="informacionOtroUsuario">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="card-content-inner">
+                                            <p class="buttons-row buttons-addRemoveFriends" >
+                                                <a id="BagregarAmigo" user="" status="" class="button"></a>
+                                                <a id="BenviarMensaje" user="" class="button">Enviar mensaje</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card" id="cardDetallesPerfilOtroUsuario">
+                                  <div class="card-content">
+                                    <div class="card-header" id="nameOtroUserCard"></div>
+                                    <div class="card-content-inner">
+                                        Miembro desde el 20 de enero de 2018 <br>
+                                        Nació el 5 de abril 1994 <br>
+                                        <br>
+                                        <i class="fa fa-quote-left" aria-hidden="true"></i> <i>Hola! soy nuevo en Ranking Fish.</i>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                 <div class="card" id="cardNotasPerfilOtroUsuario">
+                                    <div class="card-content">
+                                        <div class="card-header" id="nameUserCard">Notas</div>
+                                        <div class="card-content-inner"><i>El usuario no posee notas...</i></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div id="pescasOtroUsuario" class="ocultarElemento">
+                                
+                                <div class="card">
+                                  <div class="card-content">
+                                    <div id="pescasOtroUsuario-visible">
+                                        <div class="card-content-inner" id="pescasOtroUserCard"></div>
+                                    </div>
+                                    <div id="pescasOtroUsuario-novisible">
+                                        No puedes ver las pescas de este usuario.
+                                    </div>
+                                  </div>
+                                </div>
+
+                            </div>
+
+                            <div id="contactosOtroUsuario" class="ocultarElemento">
+                                
+                                <div class="card">
+                                  <div class="card-content">
+                                        
+                                        <div id="contactosOtroUserCard" class="row ">
+                                            <div id="BamigosOtroUserCard" class="Cardlink menuProfileContactoActive"><a href="#">Amigos</a></div>
+                                            <div id="BclubesOtroUserCard" class="Cardlink"><a href="#">Clubes</a></div>
+                                            <div id="BguiasOtroUserCard" class="Cardlink"><a href="#">Guías</a></div>
+                                        </div>
+                                        
+                                        <div class="card-content-inner">
+                                            <div id="contactosOtroUserCard-visible">
+                                                <div id="amigosOtroUserCard"><ul id="listaAmigosOtroUserCard"></ul></div>
+                                                <div id="clubesOtroUserCard" class="ocultarElemento">Clubes...</div>
+                                                <div id="guiasOtroUserCard" class="ocultarElemento">Guias...</div>
+                                            </div>
+                                            <div id="contactosOtroUserCard-novisible">
+                                                <p>No puedes ver los contactos de este usuario.</p>
+                                            </div>
+                                        </div>
+                                    
+                                  </div>
+                                </div>
+
+                            </div>
+                        </div>
+                            
+                    </div>
+                </div>
+
+            </div>
+      
+            <div class="toolbar tabbar tabbar-labels">
+                <div class="toolbar-inner">
+
+                    <a id="BIndex" href="#index" class="link active">
+                        <i class="f7-icons">navigation</i>
+                        <span class="tabbar-label">Explorar</span>
+                    </a>
+                    <a id="BComunidad" href="#comunidad" class="link">
+                        <i class="f7-icons">persons</i>
+                        <span class="tabbar-label">Comunidad</span>
+                    </a>
+                    <a id="BMensajes" href="#mensajes" class="link">
+                        <i class="f7-icons">chat</i>
+                        <span class="tabbar-label">Mensajes</span>
+                    </a>
+                    <a id="BPerfil" href="#miPerfil" class="link">
+                        <i class="f7-icons">person</i>
+                        <span class="tabbar-label">Mi perfil</span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <div class="login-screen">
+        <div class="view">
+            <div class="page">
+                <div class="page-content login-screen-content">
+                    <div class="login-screen-title">APP Ejemplo</div>
+                    <form id="formLogin">
+                        <div class="list-block">
+                            <ul>
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">Usuario</div>
+                                        <div class="item-input">
+                                            <input type="email" id="username" autocomplete="username" placeholder="Tu email">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">Contraseña</div>
+                                        <div class="item-input">
+                                            <input type="password" id="password" autocomplete="current-password" placeholder="Contraseña">
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="list-block">
+                            <ul>
+                                <li><a href="#" id="btnLogin" class="item-link list-button">Iniciar</a></li>
+                            </ul>
+                            <div class="list-block-label">
+                                <p id="errorIniciarSesion" class="ocultarElemento">Error al iniciar sesión. Revise su usuario y contraseña.</p>
+                                <p>Si es tu primera vez, haz click en <a href="#" onclick="mostrarFormRegistrar()" class="">Registrarse</a></p>
+                                <p>Registrar con <a href="#" onclick="logintGoogle()" >GOOGLE</a></p>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+                    </form>
+                    <form id="formRegistrar" class="formOculto">
+                        <div class="list-block">
+                            <ul>
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">Usuario</div>
+                                        <div class="item-input">
+                                            <input type="text" id="username2" autocomplete="username2" placeholder="Tu email">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">Contraseña</div>
+                                        <div class="item-input">
+                                            <input type="password" id="password2" autocomplete="new-password" placeholder="Contraseña">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">Repetir</div>
+                                        <div class="item-input">
+                                            <input type="password" id="password-repeat" autocomplete="new-password" placeholder="Contraseña">
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="list-block">
+                            <ul>
+                                <li><a href="#" id="btnSignUp" class="item-link list-button">Registrarse</a></li>
+                            </ul>
+                            <div class="list-block-label">
+                                <p id="errorIniciarSesion" class="ocultarElemento">Error al iniciar sesión. Revise su usuario y contraseña.</p>
+                                <p>Si ya te registraste antes, haz click en <a href="#" onclick="mostrarFormIniciar()" class="">Iniciar sesión</a></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+
+    <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+    
+    <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+    <script type="text/javascript" src="lib/vue/vue-des.js"></script>
+    <script type="text/javascript" src="lib/framework7-vue/framework7-vue.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACEkOF6mm9oKZpav4BHQPzOB6Pbo60Ezg"></script>
+    
+    <script type="text/javascript" src="js/my-app.js"></script>
+    <script src="js/firebase_auth.js"></script> <!-- Código para la autenticacion desde Firebase -->
+
+    <script src="js/map_start.js"></script>
+    <script src="js/map_agregarPescas.js"></script>
+    <script src="js/amigos.js"></script>
+    <script src="js/perfil_usuarios.js"></script>
+    <script src="js/actividades.js"></script>
+    
+    
+    
+    
+
+</body>
+
+</html>

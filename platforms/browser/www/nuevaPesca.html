@@ -1,0 +1,139 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="#" class="back link">
+                <i class="icon icon-back"></i>
+                <span>Atrás</span>
+            </a>
+        </div>
+        <div class="center sliding">Compartí tu pesca</div>
+        <div class="right">
+          <a href="#" id="formPescaAceptar">
+            <span>Grabar</span>
+          </a>
+        </div>
+    </div>
+</div>
+
+<div class="pages">
+    <div data-page="formPesca" class="page no-toolbar">
+        <div class="page-content">
+            <div class="content-block" style="position: absolute; width: 100%;">
+
+              <div class="list-block">
+                <ul>
+                  <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <input class="custom-file-input " type='file' id='_file' accept="image/*;capture=camera">
+                        </div>
+                      </div>
+                    </li>
+                </ul>
+              </div>
+ 
+                <div class="list-block" >
+                  <ul>
+                    <!-- Select -->
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">Especie</div>
+                          <div class="item-input">
+                            <select id="especiePesca">
+                              <option selected="true" value="0" disabled="disabled">Seleccione</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <!-- Text inputs -->
+                    <li>
+                      <div class="item-content">
+                        
+                        <div class="item-inner">
+                          <div class="item-title label">Tamaño</div>
+                          <div class="item-input">
+                            <input type="number" id="tamanoPesca" placeholder="Cms">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <!-- Text inputs -->
+                    <li>
+                      <div class="item-content">
+                       
+                        <div class="item-inner">
+                          <div class="item-title label">Peso</div>
+                          <div class="item-input">
+                            <input type="number" id="pesoPesca" placeholder="Kgs">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <!-- Select -->
+                    <li>
+                      <div class="item-content">
+                        
+                        <div class="item-inner">
+                          <div class="item-title label">Metodo</div>
+                          <div class="item-input">
+                            <select id="metodoPesca">
+                              <option selected="true" value="0" disabled="disabled">Seleccione</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <!-- Date -->
+                    <li>
+                      <div class="item-content">
+                        
+                        <div class="item-inner">
+                          <div class="item-title label">Fecha</div>
+                          <div class="item-input">
+                            <input type="date" id="fechaPesca" placeholder="Fecha" value="">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <!-- Date -->
+                    <li>
+                      <div class="item-content">
+                        
+                        <div class="item-inner">
+                          <div class="item-title label">Hora</div>
+                          <div class="item-input">
+                            <input type="time" id="horaPesca" placeholder="Fecha" value="">
+                            <input type="hidden" id="segundosPesca">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+      
+
+                    <!-- Textarea -->
+                    <li class="align-top">
+                      <div class="item-content">
+                        
+                        <div class="item-inner">
+                          <div class="item-title label">Descripcion</div>
+                          <div class="item-input">
+                            <textarea id="descripcionPesca" placeholder="Escribe algo sobre tu captura"></textarea>
+                            <input type="hidden" id="posicionPesca">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+
+                  </ul>
+                </div>
+                <div id="alertasFormPescas">
+                  <div id="alertaPesoPesca" class="ocultarElemento">Falta ingresar el peso de tu pesca</div>
+                  <div id="alertaTamanoPesca" class="ocultarElemento">Falta ingresar el tamaño de tu pesca</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

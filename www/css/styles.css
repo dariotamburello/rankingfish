@@ -1,0 +1,443 @@
+/*
+   statusbar-overlay sets the background color for the overlay. Black text is the default when the statusbar plugin is not added. When the
+   statusbar plugin is added, it also adds default setting to make the content white via:
+
+       <preference name="StatusBarStyle" value="lightcontent"/>
+
+   Setting the background color to black will allow the default light content (white text/icons) to show on it. The statusbar plugin is included
+   in the config.xml file and will be added by the CLI when you build locally.
+
+   See https://github.com/apache/cordova-plugin-statusbar
+*/
+
+.statusbar-overlay {
+    background: #000000;
+}
+
+.ocultarElemento, .elementoOculto, .listadoOculto, .formOculto{
+  display: none
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.clear {clear: both;}
+
+#map{
+  min-width: 200px;
+  min-height: 200px;
+  height: -webkit-fill-available;
+}
+
+.panel{
+  background-color: rgba(255, 255, 255, 0.9)
+}
+
+/* PANEL LEFT PUSH */
+#userProfileIndex{
+  height: 44px;
+}
+
+#userProfileIndex #imageUser{
+  float: left;
+  height: 35px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+#userProfileIndex #nameUser{
+  float: left;
+    margin-left: 15px;
+    padding-top: 8px;
+    padding-bottom: 7px;
+    padding-right: 15px;
+    font-size: 17px;
+}
+
+.list-block-sinmargen{
+  margin-top: 0px;
+}
+
+.list-block-sinmargen .item-content{
+  padding-left: 0px;
+  margin-left: 5px;
+
+}
+.list-block-sinmargen .item-media{
+  height: 35px;
+  width: 35px;
+}
+.list-block-sinmargen .item-media i{
+  margin-left: auto;
+    margin-right: auto;
+}
+.list-block-sinmargen .item-inner{
+  margin-left: 10px;
+}
+
+
+/* SIDEPANEL RIGHT OVER */
+#sidepanelImage{
+  height: 150px;
+  width: 260px;
+  background-repeat: no-repeat;
+  background-size: 260px 150px;
+}
+
+.zoneTitleSidePanel{
+    background-color: #44433e;
+    color: white;
+    padding-left: 15px;
+}
+
+.zoneTitleSidePanel h3{
+    margin: 0;
+    padding-top: 20px;
+}
+
+.zoneTitleSidePanel p{
+    margin: 0;
+    font-size: 11px;
+    padding-bottom: 20px;
+}
+
+#sidepanelText{
+    padding-left: 15px;
+}
+
+#sidePanelLinks{
+  font-size: 10px;
+  text-align: center;
+  width: 100%
+}
+
+#rankingEspejo{
+    margin-top: 15px;
+    padding-left: 10px;
+    width: 100%
+}
+
+#valoracionNro{
+  float: left;
+  font-size: 25px;
+  background-color: darkblue;
+  color: white;
+  padding: 3px;
+  border-radius: 0px 10px 0px 10px
+}
+
+#valoracionTexto{
+  float: left;
+  padding: 10px;
+  padding-left: 10px;
+  font-size: 17px;
+  font-weight: bold;
+  color: darkblue;
+}
+
+#valoracionCantComentarios{
+  float: left;
+  font-size: 13px;
+  padding: 14px 0;
+}
+
+#valoracionCantComentarios a {
+  color: black;
+}
+#valoracionCantComentarios a:visited {
+  color: black;
+}
+
+#addValoracion{
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  padding-top: 5px;
+}
+
+#verPescasCercanas{
+  margin-top: 25px
+}
+#imgPescasCercanas{
+  float: left;
+  padding-left: 10px;
+}
+#textPescasCercanas{
+  float: left;
+  padding-left: 10px;
+}
+
+#pulgares{
+  margin-top: 25px;
+  padding-left: 25%;
+}
+#pulgarUp{
+  float: left;
+  padding-left: 0px;
+} 
+#pulgarDown{
+  float: left;
+  padding-left: 15px;
+}
+.pulgarClicked{
+  color: blue
+}
+
+#cantPulgaresUp, #cantPulgaresDown{
+  padding-left: 5px
+}
+
+#alertasFormPescas{
+  color: red;
+  font-style: bold
+}
+
+/* INPUT FOTO PESCA */
+        .custom-file-input 
+        {
+            display: inline-block;
+            position: relative;
+            color: #FFFFFF;
+        }
+        .custom-file-input input 
+        {
+            visibility: hidden;                 
+        }
+        .custom-file-input:before 
+        {
+            content: '+';
+            font-family: FontAwesome;
+            display: block;
+            background: -webkit-linear-gradient( -180deg, #007AFF, #007AFF);
+            background: -o-linear-gradient( -180deg, #007AFF, #007AFF);
+            background: -moz-linear-gradient( -180deg, #007AFF, #007AFF);
+            background: linear-gradient( -180deg, #007AFF, #007AFF);
+            border: 3px solid #007AFF;
+            border-radius: 10px;
+            padding: 5px 0px;
+            width: 40%;
+            outline: none;
+            white-space: nowrap;
+            cursor: pointer;
+            text-align: center;
+            font-size: 12pt;
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+        .custom-file-input:hover:before 
+        {
+            border-color: #007AFF;
+        }
+        .custom-file-input:active:before 
+        {
+            background: #007AFF;
+        } 
+
+
+
+
+/* PAGE PERFIL */
+
+.EncabezadoPerfil{
+  width: 100%;
+  height: 220px;
+  background-color: black;
+  color: white;
+  font-size: 17px;
+  -webkit-box-shadow: 0px 12px 18px -10px rgba(0,0,0,1);
+-moz-box-shadow: 0px 12px 18px -10px rgba(0,0,0,1);
+box-shadow: 0px 12px 18px -10px rgba(0,0,0,1);
+}
+
+.EncabezadoPerfil #imagenMiPerfil, .EncabezadoPerfil #imagenOtroPerfil{
+  height: 100px;
+  width: 100px;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  border-radius: 200px 200px 200px 200px;
+  -moz-border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+  float: left;
+  margin-top: 50px;
+    margin-left: 30px;
+}
+
+.EncabezadoPerfil .infoImage{
+  width: 200px;
+  float: left;
+  margin-left: 15px;
+  margin-top: 70px;
+}
+
+.EncabezadoPerfil .username{
+  float: left
+}
+
+.EncabezadoPerfil .userLocation{
+  float: left;
+  font-size: 14px;
+}
+
+.encabezadoMenu{
+  margin-top: 40px;
+}
+.encabezadoMenu .menu{
+  float: left;
+  margin-left: 37px;
+}
+.encabezadoMenu .menu a {
+  color: white;
+}
+
+.buttons-addRemoveFriends .disabled{
+  color: grey;
+    border: solid 1px grey;
+}
+
+.menuProfileActive {
+  border-bottom: 3px solid white;
+  padding-bottom: 5px;
+}
+
+.cuerpoPerfil{
+  margin-top: 30px;
+}
+
+#pescasUserCard .thumb{
+  height: 50px;
+  width: 50px;
+  border: 1px solid black;
+  margin-right: 10px
+}
+
+.otroPerfil{
+  background-color: lightblue;
+  color: black;
+}
+
+#pescasOtroUserCard .thumb{
+  height: 50px;
+  width: 50px;
+  border: 1px solid black;
+  margin-right: 10px
+}
+
+.encabezadoContactos{
+  margin-top: 0px
+}
+.encabezadoContactos .menu{
+ 
+}
+.encabezadoContactos .menu a{
+  color: black;
+}
+
+#contactosOtroUsuario .card-header{
+  background-color: #ececec
+}
+
+#contactosUserCard{}
+
+  #contactosUserCard a {
+    color: black
+  }
+    
+    #BamigosUserCard, #BclubesUserCard, #BguiasUserCard{
+      width: 33%;
+      text-align: center;
+    }
+
+#amigosUserCard .thumb{
+  height: 80px;
+  width: 80px;
+  border: 1px solid black;
+  margin-right: 20px
+}
+
+#listaAmigosUserCard{
+  list-style: none;
+  padding-left: 0px;
+}
+  #listaAmigosUserCard .fotoAmigo{
+    float: left;
+  }
+  #listaAmigosUserCard .nameAmigo{
+    font-size: 19px;
+    padding-top: 22px;
+  }
+
+#contactosOtroUserCard{}
+
+  #contactosOtroUserCard a {
+    color: black
+  }
+
+    #BamigosOtroUserCard, #BclubesOtroUserCard, #BguiasOtroUserCard{
+      width: 33%;
+      text-align: center;
+    }
+
+.Cardlink{
+  background-color: #e0e0e0;
+  padding: 10px 0 10px 0;
+}
+.menuProfileContactoActive {
+  border-bottom: 3px solid black;
+  padding-bottom: 5px;
+}
+
+#amigosOtroUserCard .thumb{
+  height: 80px;
+  width: 80px;
+  border: 1px solid black;
+  margin-right: 10px
+}
+
+#listaAmigosOtroUserCard{
+  list-style: none;
+  padding-left: 0px;
+}
+  #listaAmigosOtroUserCard .fotoAmigo{
+    float: left;
+  }
+  #listaAmigosOtroUserCard .nameAmigo{
+    font-size: 19px;
+    padding-top: 22px;
+  }
+ 
+ /* COMUNIDAD */
+
+#actividades{
+    font-size: 14px;
+}
+  .facebook-card .card-header {
+    display: block;
+    padding: 10px;
+  }
+    .facebook-card .facebook-avatar {
+      float: left;
+    }
+    .facebook-card .facebook-name {
+      margin-left: 44px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .facebook-card .facebook-date {
+      margin-left: 44px;
+      font-size: 13px;
+      color: #8e8e93;
+    }
+
+  .card-content-inner{
+    display: block;
+  }
+    .card-content-inner .icon-act{
+      float: left
+    }
+    .card-content-inner .desc-act{
+      margin-left: 70px;
+    }
